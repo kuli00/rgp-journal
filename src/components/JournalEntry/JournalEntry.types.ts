@@ -10,21 +10,21 @@ export enum EntriesTypes {
 }
 
 export enum Races {
-  ELF,
-  DWARF,
-  HUMAN,
-  HOBBIT,
-  HALFELF,
-  ORC,
-  HALFORC,
-  TIEFLING,
-  SHEARIEL,
-  RIEL,
-  VIVERIEL,
-  SIRIEL,
-  MAARIEL,
-  AWOKEN,
-  DRAGON,
+  ELF = 'Elf',
+  DWARF = 'Dwarf',
+  HUMAN = 'Human',
+  HOBBIT = 'Hobbit',
+  HALFELF = 'Half-elf',
+  ORC = 'Orc',
+  HALFORC = 'Half-orc',
+  TIEFLING = 'Tiefling',
+  SHEARIEL = 'Sheariel',
+  RIEL = 'Riel',
+  VIVERIEL = 'Viveriel',
+  SIRIEL = 'Siriel',
+  MAARIEL = 'Maariel',
+  AWOKEN = 'Awoken',
+  DRAGON = 'Dragon',
 }
 
 export enum Classes {
@@ -49,26 +49,27 @@ export enum Classes {
   CRIMINAL,
 }
 
-export interface CharacterEntryI {
+export interface CharacterEntryI extends Entry {
   class?: Classes;
   race?: Races;
-  organization?: string;
+  organization?: OrganisationEntryI;
   place?: PlaceEntryI;
+  additionalInfo?: string;
 }
 
-export interface PlaceEntryI {
+export interface PlaceEntryI extends Entry {
   characters?: CharacterEntryI[];
   localization: string | PlaceEntryI;
 }
 
-export interface QuestEntryI {
+export interface QuestEntryI extends Entry {
   originator: CharacterEntryI;
   price?: string;
   completed: boolean;
   recipient: CharacterEntryI | null;
 }
 
-export interface OrganisationEntryI {
+export interface OrganisationEntryI extends Entry {
   characters?: CharacterEntryI[];
   place?: PlaceEntryI;
 }
@@ -78,5 +79,11 @@ export interface Entry {
   title: string;
   description: string;
   type: EntriesTypes;
-  typeFields: CharacterEntryI | PlaceEntryI | QuestEntryI | OrganisationEntryI;
 }
+
+export type CombinedEntry =
+  | CharacterEntryI
+  | PlaceEntryI
+  | QuestEntryI
+  | OrganisationEntryI
+  | Entry;

@@ -1,4 +1,7 @@
-import { Entry } from '@/components/JournalEntry/JournalEntry.types';
+import {
+  CombinedEntry,
+  Entry,
+} from '@/components/JournalEntry/JournalEntry.types';
 export interface Category {
   name: string;
   subCategories?: Category[];
@@ -7,5 +10,5 @@ export interface Category {
 
 export interface CategoryListProps {
   categories: Category[];
-  openEntry: (entry: Entry) => void;
+  openEntry: (entry: CombinedEntry) => void;
 }

@@ -4,7 +4,7 @@ import { entries } from '@/../constants';
 import CategoryList from '@/components/CategoryList';
 import ContentWrapper from '@/components/ContentWrapper';
 import JournalEntry from '@/components/JournalEntry';
-import { Entry } from '@/components/JournalEntry/JournalEntry.types';
+import type { CombinedEntry } from '@/components/JournalEntry/JournalEntry.types';
 
 const Journal = () => {
   const buildCategories = () => {
@@ -47,13 +47,13 @@ const Journal = () => {
     return categories;
   };
 
-  const [openedEntry, setOpenedEntry] = useState<Entry | null>(null);
+  const [openedEntry, setOpenedEntry] = useState<CombinedEntry | null>(null);
 
   return (
     <ContentWrapper>
       <CategoryList
         categories={buildCategories()}
-        openEntry={(entry: Entry) => setOpenedEntry(entry)}
+        openEntry={(entry: CombinedEntry) => setOpenedEntry(entry)}
       />
       <JournalEntry openedEntry={openedEntry} />
     </ContentWrapper>
