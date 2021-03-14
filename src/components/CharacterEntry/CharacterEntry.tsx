@@ -1,30 +1,27 @@
 import React from 'react';
 
 import { CharacterEntryI } from '@/components/JournalEntry/JournalEntry.types';
-
 import {
   AdditionalInfo,
-  CharacterName,
   Description,
   Property,
   ShortDescription,
+  Subtitle,
+  Title,
   Wrapper,
-} from './CharacterEntry.styled';
+} from '@/styles/shared';
 
 export const CharacterEntry = ({ entry }: { entry: CharacterEntryI }) => {
   const a = 7;
 
   return (
     <Wrapper>
-      <CharacterName>{entry.title}</CharacterName>
-      <AdditionalInfo>
-        Race: <Property>{entry.race}</Property>
-      </AdditionalInfo>
+      <Title>{entry.title}</Title>
+      <Subtitle>
+        {`${entry.race} |`} {entry.class}
+      </Subtitle>
       <AdditionalInfo>
         Organization: <Property>{entry.organization?.title}</Property>
-      </AdditionalInfo>
-      <AdditionalInfo>
-        Class: <Property>{entry.class}</Property>
       </AdditionalInfo>
       <AdditionalInfo>
         Place: <Property>{entry.place?.title}</Property>

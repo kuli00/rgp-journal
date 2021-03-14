@@ -54,12 +54,12 @@ export interface CharacterEntryI extends Entry {
   race?: Races;
   organization?: OrganisationEntryI;
   place?: PlaceEntryI;
-  additionalInfo?: string;
 }
 
 export interface PlaceEntryI extends Entry {
   characters?: CharacterEntryI[];
   localization: string | PlaceEntryI;
+  placeType?: string;
 }
 
 export interface QuestEntryI extends Entry {
@@ -79,6 +79,7 @@ export interface Entry {
   title: string;
   description: string;
   type: EntriesTypes;
+  additionalInfo?: string;
 }
 
 export type CombinedEntry =

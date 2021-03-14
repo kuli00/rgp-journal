@@ -48,6 +48,21 @@ const entries: CombinedEntry[] = [
     description: 'hitler stalin',
     race: Races.TIEFLING,
   },
+  {
+    id: '3',
+    type: EntriesTypes.PLACE,
+    description: 'dupa cycki',
+    title: 'Pustynia',
+    placeType: 'karczma',
+    additionalInfo: 'asoifjswdiofjewoifjweoij ',
+    characters: [
+      {
+        id: '1',
+        title: 'Xander',
+      },
+    ],
+    localization: 'Continent',
+  },
 ];
 
 export default entries;
